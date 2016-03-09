@@ -12,3 +12,8 @@ CxxTest is available under the GNU Lesser General Public Licence (LGPL).
 A user guide can be downloaded from http://cxxtest.com.
 
 
+Credit for Makefile
+Nick Galbreath
+
+http://blog.client9.com/2009/03/20/automating-cxxtest-with-make.html
+
