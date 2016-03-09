@@ -1,5 +1,6 @@
 # Define all your usual stuff.  This could come from 'configure'
 CC = g++ --std=c++11 -I. 
+LD_LIBRARY_PATH=/usr/local/lib
 
 # where is this program
 TESTGEN = bin/cxxtestgen
