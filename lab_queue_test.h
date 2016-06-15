@@ -7,13 +7,13 @@ using namespace std;
 class QueueTest : public CxxTest::TestSuite 
 {
 private:
-	shared_ptr<Queue> q;
-	vector<int> testvalues;
+    shared_ptr<Queue> q;
+    vector<int> testvalues;
 
 public:
-	void setUp()
+    void setUp()
     {
-    	testvalues = {1,2,3,4,5};
+        testvalues = {1,2,3,4,5};
         q = make_shared<Queue>( testvalues.size() );
     }
 
