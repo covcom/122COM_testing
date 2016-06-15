@@ -1,7 +1,7 @@
-CC = g++ --std=c++11 -I. 
+CC = g++ --std=c++11  
 
 # where is cxxtestgen?
-TESTGEN = bin/cxxtestgen
+TESTGEN = cxxtestgen
 
 # things you want to test, each of these needs a matching file ending in _test.h
 TESTS = lec_unit lab_stack lab_queue

@@ -23,7 +23,7 @@ public:
     }
 
     // COMPLETE ME
-    void test_nothing()
+    void test_something()
     {
     }
 };
