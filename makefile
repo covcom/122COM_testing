@@ -1,10 +1,10 @@
 CC = g++ --std=c++11  
 
 # where is cxxtestgen?
-TESTGEN = cxxtestgen
+TESTGEN = cxxtestgen --error-printer
 
 # things you want to test, each of these needs a matching file ending in _test.h
-TESTS = lec_unit lab_stack lab_queue
+TESTS = pre_unit lab_stack lab_queue
 
 #-----------------------------------------
 # Shouldn't need to change anything below this bit
@@ -21,7 +21,7 @@ $(TESTS): $(TESTS_CC)
 
 %_test.cpp: %_test.h
 	@(echo "====== Create the cxxtest code for $< ======")
-	$(TESTGEN) --error-printer -o $@ $<
+	$(TESTGEN) -o $@ $<
 	@(echo "")
 
 %: %_test.cpp
