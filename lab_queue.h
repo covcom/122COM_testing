@@ -2,15 +2,14 @@
 #define QUEUE_H
 
 #include <exception>
-#include <memory>
+#include <vector>
 using namespace std;
 
 class Queue
 {
 private:
     const int maxSize;
-    unique_ptr<char[]> queue;
-    int items;
+    vector<char> queue;
 
 public:
     class Full: public exception
@@ -18,7 +17,7 @@ public:
     public:
         virtual const char* what() const throw()
           {
-            return "queue is full";
+            return "Queue is full";
           }
     };
 
@@ -27,16 +26,14 @@ public:
     public:
         virtual const char* what() const throw()
           {
-            return "queue is empty";
+            return "Queue is empty";
           }
     };
 
     /** Initialise the queue, maxSize is the maximum number of
         values that can be stored in the queue at any time **/
-    Queue( const int _maxSize ) : maxSize(_maxSize),
-                                  queue( new char[_maxSize] )
+    Queue( const int _maxSize ) : maxSize(_maxSize)
     {
-        items = 0;
     }    
 
     ~Queue()
@@ -45,9 +42,10 @@ public:
 
     /** Returns the number of values currently stored in the 
         queue **/
-    int num_items()
+    int num_items() const
     {
-        return items;
+        // COMPLETE ME
+        return 0;
     }
 
     /** Add value to the front of the queue, raises Queue::Full 
@@ -56,8 +54,7 @@ public:
     {
         if( num_items() < maxSize )
         {
-            queue[ items ] = value;
-            items += 1;
+            queue.emplace_back(value);
         }
         else
         {
@@ -68,11 +65,11 @@ public:
     /** Returns the value currently stored at the front of the 
         queue, raises Queue::Empty exception is queue is 
         empty **/
-    char front()
+    char front() const
     {
         if( num_items() > 0 )
         {
-            return queue[0];
+            return queue.front();
         }
         else
         {
@@ -83,16 +80,10 @@ public:
     /** Returns the value currently stored at the back of the 
         queue, raises Queue.Empty exception if the queue is
         empty **/
-    char back()
+    char back() const
     {
-        if( num_items() > 0 )
-        {
-            return queue[items-1];
-        }
-        else
-        {
-            throw Empty();
-        }
+        // COMPLETE ME
+        return 0;
     }
 
     /** Removes and returns the value currently stored at the
@@ -100,23 +91,8 @@ public:
         is empty **/
     char pop()
     {
-        if( num_items() > 0 )
-        {
-            char value = queue[0];            // get the value at the front of the queue
-
-            for( int i=0; i<items-1; ++i )    // shuffle everything forward one space
-            {
-                queue[i] = queue[i+1];    
-            }
-
-            items -= 1;                        // reduce the item count by 1
-
-            return value;                    // return the value that was at the front
-        }
-        else
-        {
-            throw Empty();
-        }
+        // COMPLETE ME
+        return 0;
     }
 };
 
