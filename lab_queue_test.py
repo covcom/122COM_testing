@@ -11,6 +11,9 @@ class QueueTest(unittest.TestCase):
 
     # COMPLETE ME
 
+    def test_something(self):
+        pass
+
 if __name__ == '__main__':
     unittest.main()
 
