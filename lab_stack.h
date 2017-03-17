@@ -43,9 +43,8 @@ public:
     /** Returns the number of values currently stored in the 
         stack */
     int num_items() const
-    {
-        // REPLACE ME
-        return 0;
+    {  
+        return stack.size();              
     }
 
     /** Add value to the top of the stack, raises Stack::Full 
@@ -67,13 +66,31 @@ public:
         empty */
     char top()
     {
+        if( num_items() > 0 )
+        {
+            return stack[ pos ];
+        }
+        else
+        {
+            throw Empty();
+        }      
     }
 
     /** Removes and returns the value currently stored at the
         top of the stack, raises Stack::Empty exception if stack
         is empty */
     char pop()
-    {
+    { 
+        if( num_items() > 0 )
+        {
+            char value = stack.back();
+            stack.pop_back();
+            return value;
+        }
+        else
+        {
+            throw Empty();
+        }     
     }
 };
 
