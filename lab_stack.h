@@ -68,7 +68,7 @@ public:
     {
         if( num_items() > 0 )
         {
-            return stack[ pos ];
+            return stack[ stack.size() ];
         }
         else
         {
